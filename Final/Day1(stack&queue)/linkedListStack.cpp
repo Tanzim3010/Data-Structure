@@ -1,22 +1,26 @@
 #include <iostream>
 using namespace std;
 
-class StackNode {
+class StackNode
+{
 public:
     int data;
-    StackNode* next;
+    StackNode *next;
 
-    StackNode(int data) {
+    StackNode(int data)
+    {
         this->data = data;
         this->next = nullptr;
     }
 };
 
-class Stack {
-    StackNode* top;
+class Stack
+{
+    StackNode *top;
 
 public:
-    Stack() {
+    Stack()
+    {
         top = nullptr;
     }
 
@@ -26,9 +30,11 @@ public:
     bool isEmpty();
 };
 
-bool Stack::push(int x) {
-    StackNode* newNode = new StackNode(x);
-    if (!newNode) { // Check if memory allocation was successful
+bool Stack::push(int x)
+{
+    StackNode *newNode = new StackNode(x);
+    if (!newNode)
+    { // Check if memory allocation was successful
         cout << "Stack overflow" << endl;
         return false;
     }
@@ -38,31 +44,37 @@ bool Stack::push(int x) {
     return true;
 }
 
-int Stack::pop() {
-    if (top == nullptr) { // Stack underflow condition
+int Stack::pop()
+{
+    if (top == nullptr)
+    { // Stack underflow condition
         cout << "Stack underflow" << endl;
         return 0;
     }
     int poppedValue = top->data;
-    StackNode* temp = top;
+    StackNode *temp = top;
     top = top->next;
     delete temp;
     return poppedValue;
 }
 
-int Stack::peak() {
-    if (top == nullptr) {
+int Stack::peak()
+{
+    if (top == nullptr)
+    {
         cout << "Stack is empty" << endl;
         return 0;
     }
     return top->data;
 }
 
-bool Stack::isEmpty() {
+bool Stack::isEmpty()
+{
     return top == nullptr;
 }
 
-int main() {
+int main()
+{
     Stack s;
     s.push(1);
     s.push(5);
@@ -73,7 +85,8 @@ int main() {
     cout << s.peak() << " is the top element" << endl;
 
     cout << "Elements in stack: ";
-    while (!s.isEmpty()) {
+    while (!s.isEmpty())
+    {
         cout << s.peak() << " ";
         s.pop();
     }
