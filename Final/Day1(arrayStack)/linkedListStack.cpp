@@ -1,3 +1,5 @@
+//linked list showcase with stack
+
 #include <iostream>
 using namespace std;
 

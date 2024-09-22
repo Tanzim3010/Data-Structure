@@ -1,3 +1,5 @@
+// Write a C++ code to implement Binary search tree
+
 #include <iostream>
 using namespace std;
 
@@ -103,6 +105,17 @@ void inorder(treeNode *root)
         inorder(root->right);
     }
 }
+
+void printTree(treeNode *root)
+{
+    if (root != nullptr)
+    {
+        cout << root->data << " ";
+        printTree(root->left);
+        printTree(root->right);
+    }
+}
+
 int main()
 {
     treeNode *root = nullptr;
@@ -115,6 +128,11 @@ int main()
     insert(root, 70);
     insert(root, 60);
     insert(root, 80);
+
+    // printing the tree
+    cout << "Printing the BST: ";
+    printTree(root);
+    cout << endl;
 
     cout << "In-order traversal: ";
     inorder(root);
@@ -138,6 +156,17 @@ int main()
     cout << "In-order traversal after deletion of 50: ";
     inorder(root);
     cout << endl;
+
+    // finding minimum node
+    treeNode *minNode = findMin(root);
+    if (minNode)
+    {
+        cout << "minimum value in the tree: " << minNode->data << endl;
+    }
+    else
+    {
+        cout << "Tree is empty" << endl;
+    }
 
     return 0;
 }

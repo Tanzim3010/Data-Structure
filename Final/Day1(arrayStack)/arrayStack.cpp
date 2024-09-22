@@ -1,3 +1,5 @@
+//stack showcase with basic array
+
 #include <iostream>
 using namespace std;
 
